@@ -92,6 +92,9 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 
+# but i won't dexpropt. this device haven't much /system partition size...
+DONT_DEXPREOPT_PREBUILTS := true
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
