@@ -20,6 +20,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/samsung/mondrianwifi/mondrianwifi-vendor.mk)
 
+# Include GApps (DO NOT SHARE PUBLIC IF YOU BUILD WITH THEIR OPTIONS. YOU WARNED.)
+$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
+
 # We are a tablet, not a phone
 PRODUCT_CHARACTERISTICS := tablet
 
@@ -36,6 +39,13 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 TARGET_SCREEN_WIDTH := 2560
 TARGET_SCREEN_HEIGHT := 1600
 TARGET_BOOTANIMATION_HALF_RES := false
+
+# OpenGApps
+GAPPS_VARIANT := nano
+GAPPS_PRODUCT_PACKAGES += Chrome
+GAPPS_PRODUCT_PACKAGES += Maps
+GAPPS_PRODUCT_PACKAGES += StorageManagerGoogle
+GAPPS_PRODUCT_PACKAGES += Japanese
 
 # Permissions
 PRODUCT_COPY_FILES += \
